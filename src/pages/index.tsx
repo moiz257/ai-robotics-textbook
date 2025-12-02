@@ -83,7 +83,7 @@ function HomepageHeader() {
             variants={fadeInUp}
             custom={0.45}
           >
-            <Link className={styles.primaryCta} to="/docs/intro">
+            <Link className={styles.primaryCta} to="/docs/chapter-1">
               Start Reading
             </Link>
             <Link className={styles.secondaryCta} to="/chatbot">
