@@ -1,0 +1,91 @@
+---
+id: chapter-3
+title: "Chapter 3: Gazebo Simulation"
+---
+
+# Chapter 3: Gazebo Simulation
+
+In this chapter, we dive into the world of robotics simulation with Gazebo. Simulation is a critical tool in robotics, allowing for rapid prototyping, testing, and validation of algorithms without the need for physical hardware.
+
+## What is Gazebo?
+
+Gazebo is a powerful, open-source 3D robotics simulator. It allows you to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. A key feature of Gazebo is its high-fidelity physics engine, which can simulate a wide range of physical phenomena, including rigid body dynamics, contact forces, and even fluid dynamics.
+
+Gazebo is a standalone application that can be tightly integrated with ROS 2. The `gazebo_ros_pkgs` provide the necessary plugins and tools to seamlessly connect your ROS 2 nodes with the simulated world.
+
+## Why Use Simulation?
+
+Developing and testing on physical robots can be slow, expensive, and risky. Simulation offers several key advantages:
+
+-   **Safety**: Test dangerous or destructive scenarios without risking hardware or human safety.
+-   **Speed**: Run simulations faster than real-time to quickly gather data and test algorithms.
+-   **Scalability**: Simulate multiple robots and scenarios in parallel.
+-   **Cost-effectiveness**: Avoid the cost of purchasing and maintaining expensive robotic hardware.
+-   **Accessibility**: Develop and test from anywhere, without needing access to a physical lab.
+
+## The Gazebo Interface
+
+When you launch Gazebo, you are presented with a graphical user interface (GUI) that consists of several key components:
+
+-   **The 3D View (Scene)**: This is the main window where you can see and interact with the simulated world.
+-   **The World Tree**: On the left, this panel shows a hierarchical list of all the models, lights, and other entities in the world.
+-   **The Inspector**: When you select an item in the World Tree, this panel on the right shows its properties (like pose, mass, and collision geometry).
+-   **The Toolbar**: At the top, you have tools for manipulating objects in the scene (translate, rotate), as well as for controlling the simulation (play, pause, step).
+
+## Building a Simple World
+
+Gazebo worlds are defined using the Simulation Description Format (SDF). SDF is an XML-based format that describes everything in the simulation, from robots and sensors to lighting and physics properties.
+
+Here is an example of a simple world file (`simple.world`):
+
+```xml
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="default">
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- A simple box -->
+    <model name="box">
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
+```
+
+You can load this world into Gazebo by running: `gazebo simple.world`
+
+## Spawning a Robot
+
+Robots are also defined as models in SDF. Typically, a robot's description is stored in a URDF (Unified Robot Description Format) file, which can then be converted to SDF.
+
+To spawn a robot into a running Gazebo simulation, you can use the `ros2 run gazebo_ros spawn_entity.py` command. This command takes the robot's description (as a file or a ROS parameter) and adds it to the simulation.
+
+For example, to spawn a robot named `my_robot` from a URDF file, you would run:
+
+```bash
+ros2 run gazebo_ros spawn_entity.py -entity my_robot -file path/to/your/robot.urdf
+```
+
+This chapter provides just a glimpse into the capabilities of Gazebo. As we move forward, we will use simulation extensively to develop and test the control and perception systems for our humanoid robot.

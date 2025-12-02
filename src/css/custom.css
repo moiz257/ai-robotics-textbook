@@ -1,0 +1,190 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Custom properties for colors, typography, and spacing */
+:root {
+  /* Color Palette (Futuristic, High-End) */
+  --color-primary: #00e6e6; /* Cyan */
+  --color-secondary: #ff00ff; /* Magenta */
+  --color-accent: #00ffff; /* Aqua */
+  --color-background-dark: #121212;
+  --color-background-light: #1e1e1e;
+  --color-text-light: #e0e0e0;
+  --color-text-dark: #a0a0a0;
+  --color-border: #333333;
+
+  /* Infima overrides */
+  --ifm-color-primary: var(--color-primary);
+  --ifm-color-primary-dark: #00cccc;
+  --ifm-color-primary-darker: #00b3b3;
+  --ifm-color-primary-darkest: #009999;
+  --ifm-color-primary-light: #1affee;
+  --ifm-color-primary-lighter: #33ffff;
+  --ifm-color-primary-lightest: #66ffff;
+
+  /* Typography */
+  --font-family-headings: 'Space Mono', monospace; /* Futuristic monospaced font */
+  --font-family-body: 'Inter', sans-serif; /* Modern sans-serif */
+  --font-size-root: 16px;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+  --font-weight-headings: 700;
+  --font-weight-body: 400;
+
+  /* Spacing */
+  --spacing-unit: 0.5rem;
+  --spacing-xs: var(--spacing-unit);     /* 8px */
+  --spacing-sm: calc(var(--spacing-unit) * 2); /* 16px */
+  --spacing-md: calc(var(--spacing-unit) * 3); /* 24px */
+  --spacing-lg: calc(var(--spacing-unit) * 4); /* 32px */
+  --spacing-xl: calc(var(--spacing-unit) * 6); /* 48px */
+
+  /* Transitions */
+  --transition-speed-fast: 0.15s;
+  --transition-speed-normal: 0.3s;
+  --transition-speed-slow: 0.5s;
+  --transition-easing: ease-in-out;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: var(--color-primary);
+  --ifm-color-primary-dark: #00cccc;
+  --ifm-color-primary-darker: #00b3b3;
+  --ifm-color-primary-darkest: #009999;
+  --ifm-color-primary-light: #1affee;
+  --ifm-color-primary-lighter: #33ffff;
+  --ifm-color-primary-lightest: #66ffff;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Global styles for headings and body text */
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-text-light);
+  background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000 100%);
+  transition: background-color var(--transition-speed-normal) var(--transition-easing),
+    background var(--transition-speed-slow) var(--transition-easing);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headings);
+  font-weight: var(--font-weight-headings);
+  color: var(--color-accent);
+  transition: color var(--transition-speed-normal) var(--transition-easing);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+h5 { font-size: var(--font-size-h5); }
+h6 { font-size: var(--font-size-h6); }
+
+/* Ensure fonts are loaded */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ----------------------------- */
+/* Premium navbar styling        */
+/* ----------------------------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.45rem 1.25rem;
+  background:
+    linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96)),
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 55%);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+}
+
+.navbar__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.navbar__brand {
+  gap: 0.55rem;
+}
+
+.navbar__title {
+  font-family: var(--font-family-headings);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.navbar__items {
+  gap: 0.75rem;
+}
+
+.navbar__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  transition: background var(--transition-speed-fast) var(--transition-easing),
+    color var(--transition-speed-fast) var(--transition-easing),
+    transform var(--transition-speed-fast) var(--transition-easing);
+}
+
+.navbar__link:hover {
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+.navbar__link--active {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: #f9fafb;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.6);
+}
+
+.navbar__items--right .navbar__link {
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.9);
+  font-size: 0.86rem;
+}
+
+.navbar__items--right .navbar__link:hover {
+  background: rgba(15, 23, 42, 1);
+}
+
+.navbar__toggle {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.navbar__toggle:hover {
+  background: rgba(15, 23, 42, 1);
+}
+
+/* Mobile nav adjustments */
+@media screen and (max-width: 996px) {
+  .navbar {
+    padding-inline: 0.9rem;
+  }
+
+  .navbar__inner {
+    max-width: 100%;
+  }
+
+  .navbar__title {
+    font-size: 0.82rem;
+  }
+}

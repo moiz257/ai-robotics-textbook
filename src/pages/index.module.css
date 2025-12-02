@@ -1,0 +1,291 @@
+/* Premium, modern hero section styles */
+
+.heroRoot {
+  position: relative;
+  padding: 4.5rem 1.5rem 4rem;
+  min-height: calc(100vh - 80px);
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+  color: #f9fafb;
+  overflow: hidden;
+}
+
+.heroBackgroundGlow {
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.28), transparent 55%),
+    radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.32), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.22), transparent 55%);
+  opacity: 0.75;
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.heroPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.75);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
+
+.pillDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+}
+
+.pillLabel {
+  opacity: 0.9;
+}
+
+.heroTitle {
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: #cbd5f5;
+}
+
+.heroDescription {
+  max-width: 34rem;
+  color: #e5e7eb;
+  font-size: 0.98rem;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s ease-out;
+}
+
+.primaryCta {
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  color: white;
+  box-shadow: 0 18px 50px rgba(37, 99, 235, 0.6);
+}
+
+.primaryCta:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 22px 60px rgba(37, 99, 235, 0.8);
+}
+
+.secondaryCta {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  color: #e5e7eb;
+}
+
+.secondaryCta:hover {
+  background: rgba(15, 23, 42, 1);
+  transform: translateY(-1px);
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.heroMeta span {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+}
+
+.heroRight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floatingBadge {
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  font-size: 0.72rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.badgeLabel {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
+
+.badgeSub {
+  color: #9ca3af;
+}
+
+.bookCard {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border-radius: 1.7rem;
+  background: radial-gradient(circle at 10% 0%, rgba(148, 163, 253, 0.35), rgba(15, 23, 42, 0.98));
+  box-shadow:
+    0 28px 90px rgba(15, 23, 42, 0.95),
+    0 0 0 1px rgba(148, 163, 184, 0.18);
+  padding: 1.4rem 1.35rem;
+  transform-style: preserve-3d;
+}
+
+.bookGlow {
+  position: absolute;
+  inset: 12%;
+  border-radius: 1.4rem;
+  background: radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.7), transparent 70%);
+  opacity: 0.9;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.bookCover {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  border-radius: 1.4rem;
+  padding: 1rem 1.1rem;
+  background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.bookSeries {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.bookTitle {
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.bookTitleAccent {
+  color: #38bdf8;
+}
+
+.bookTagline {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
+
+.bookFooterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badgeChip {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  color: #e5e7eb;
+}
+
+.orbitingOrb {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 999px;
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
+}
+
+.mainSection {
+  background: radial-gradient(circle at top, #020617, #020617 40%, #020617 80%);
+}
+
+@media screen and (max-width: 996px) {
+  .heroRoot {
+    padding-top: 3.4rem;
+    padding-bottom: 3.4rem;
+  }
+
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.8rem;
+  }
+
+  .heroRight {
+    order: -1;
+  }
+
+  .bookCard {
+    width: 240px;
+    height: 320px;
+  }
+
+  .floatingBadge {
+    right: 0.75rem;
+  }
+}
